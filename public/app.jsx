@@ -73,7 +73,7 @@ var Dash = React.createClass({
 			<div className="mph__container">
 				<div className="mph--background"><span className='mph__number--default'></span><span className='mph__number--default'></span><span className='mph__number--default'></span></div>
 				<div className="mph"><span className={hundreds}></span><span className={tens}></span><span className={ones}></span></div>
-				<p className="mph__label">MPH</p>
+				<p className="mph__label">KM/H</p>
 			</div>
 		);
 	},

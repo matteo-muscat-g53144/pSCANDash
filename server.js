@@ -56,9 +56,9 @@ function convertCoolantTemp(data){
   // Subtract 50 for Celsius
   var celciusCoolantTemp = data - 50;
   // Convert celcius to fahrenheit
-  var fahrenheitCoolantTemp = celciusCoolantTemp * 1.8 + 32;
+  //var fahrenheitCoolantTemp = celciusCoolantTemp * 1.8 + 32;
 
-  return fahrenheitCoolantTemp;
+  return celciusCoolantTemp;
 }
 
 function convertKPH(data){
@@ -76,7 +76,7 @@ function parseData(data){
   if(data !== undefined){
     rpm = convertRPM(data[1], data[2]);
     coolantTemp = convertCoolantTemp(data[0]);
-    mph = convertMPH(data[3]);
+    mph = convertKPH(data[3]);
   }
 
 }
@@ -125,12 +125,12 @@ io.on('connection', function (socket) {
 
       // Change values so you can see it go up when developing
       if (process.env.NODE_ENV === "development"){
-        if(rpm < 7200){
-          rpm += 11
+        if(rpm < 7000){
+          rpm += 100
         } else{
           rpm = 0
         }
-        if(mph < 120){
+        if(mph < 200){
           mph += 1
         } else{
           mph = 0
